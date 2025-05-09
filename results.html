@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Loterie Haïti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'haiti-blue': '#0047AB',
+                        'haiti-red': '#E31837',
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'opensans': ['Open Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-opensans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-haiti-blue text-white">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-2">
+                            <span class="text-haiti-blue text-2xl font-bold">5</span>
+                        </div>
+                        <span class="text-xl font-montserrat font-bold">LOTERIE HAÏTI</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="results.html" class="text-haiti-red font-semibold">Results</a>
+                    <a href="#" class="hover:text-haiti-red transition">Statistics</a>
+                    <a href="#" class="hover:text-haiti-red transition">Vendors</a>
+                    <a href="#" class="hover:text-haiti-red transition">News</a>
+                    <div class="relative">
+                        <select class="bg-transparent border-white border rounded px-2 py-1">
+                            <option value="ht">Kreyòl</option>
+                            <option value="fr">Français</option>
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    <button class="bg-haiti-red px-4 py-2 rounded-lg hover:bg-red-700 transition">
+                        Sign In
+                    </button>
+                </div>
+                <button class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Results Header -->
+    <header class="bg-haiti-blue text-white py-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-montserrat font-bold mb-4">Lottery Results</h1>
+            <p class="text-lg opacity-90">View and filter results from all our lottery games</p>
+        </div>
+    </header>
+
+    <!-- Filters Section -->
+    <section class="py-8 border-b">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="grid md:grid-cols-4 gap-6">
+                    <!-- Game Type Filter -->
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Game Type</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option value="all">All Games</option>
+                            <option value="borlette">Borlette</option>
+                            <option value="florida">Florida Lotto</option>
+                            <option value="newyork">New York Lotto</option>
+                        </select>
+                    </div>
+                    <!-- Date Filter -->
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Date</label>
+                        <input type="date" class="w-full border rounded-lg px-3 py-2">
+                    </div>
+                    <!-- Time Filter -->
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Time</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option value="all">All Times</option>
+                            <option value="midi">Midi (12:00 PM)</option>
+                            <option value="soir">Soir (7:00 PM)</option>
+                        </select>
+                    </div>
+                    <!-- Search Button -->
+                    <div class="flex items-end">
+                        <button class="w-full bg-haiti-blue text-white rounded-lg px-6 py-2 hover:bg-blue-700 transition">
+                            Search Results
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <!-- Today's Results -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-montserrat font-bold mb-6">Today's Results</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Borlette Midi -->
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <h3 class="text-xl font-montserrat font-bold">Borlette Midi</h3>
+                                <p class="text-gray-600">May 8, 2024</p>
+                            </div>
+                            <span class="text-haiti-red font-bold">12:00 PM</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <span class="w-12 h-12 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold text-xl">7</span>
+                            <span class="w-12 h-12 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold text-xl">2</span>
+                            <span class="w-12 h-12 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold text-xl">9</span>
+                        </div>
+                    </div>
+                    <!-- New York Lotto -->
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <h3 class="text-xl font-montserrat font-bold">New York Lotto</h3>
+                                <p class="text-gray-600">May 8, 2024</p>
+                            </div>
+                            <span class="text-haiti-red font-bold">2:30 PM</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <span class="w-12 h-12 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold text-xl">4</span>
+                            <span class="w-12 h-12 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold text-xl">8</span>
+                            <span class="w-12 h-12 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold text-xl">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Previous Results -->
+            <div>
+                <h2 class="text-2xl font-montserrat font-bold mb-6">Previous Results</h2>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Game</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Date</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Time</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Numbers</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">Borlette</td>
+                                <td class="px-6 py-4">May 7, 2024</td>
+                                <td class="px-6 py-4">7:00 PM</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex space-x-2">
+                                        <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">3</span>
+                                        <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">5</span>
+                                        <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">8</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">Florida Lotto</td>
+                                <td class="px-6 py-4">May 7, 2024</td>
+                                <td class="px-6 py-4">2:30 PM</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex space-x-2">
+                                        <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">1</span>
+                                        <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">4</span>
+                                        <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">6</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination -->
+                <div class="mt-6 flex justify-center">
+                    <nav class="flex space-x-2">
+                        <button class="px-3 py-1 rounded border hover:bg-gray-50">Previous</button>
+                        <button class="px-3 py-1 rounded bg-haiti-blue text-white">1</button>
+                        <button class="px-3 py-1 rounded border hover:bg-gray-50">2</button>
+                        <button class="px-3 py-1 rounded border hover:bg-gray-50">3</button>
+                        <button class="px-3 py-1 rounded border hover:bg-gray-50">Next</button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-haiti-blue text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">About Us</h4>
+                    <p class="text-sm">Official platform for Haitian lottery results and information.</p>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-haiti-red transition">Results</a></li>
+                        <li><a href="#" class="hover:text-haiti-red transition">Statistics</a></li>
+                        <li><a href="#" class="hover:text-haiti-red transition">Find Vendor</a></li>
+                        <li><a href="#" class="hover:text-haiti-red transition">News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fas fa-phone mr-2"></i> +509 2xxx-xxxx</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@loteriehaiti.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-8 pt-8 text-center text-sm">
+                <p>&copy; 2024 Loterie Haïti. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
