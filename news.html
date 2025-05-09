@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Loterie Haïti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'haiti-blue': '#0047AB',
+                        'haiti-red': '#E31837',
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'opensans': ['Open Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-opensans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-haiti-blue text-white">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-2">
+                            <span class="text-haiti-blue text-2xl font-bold">5</span>
+                        </div>
+                        <span class="text-xl font-montserrat font-bold">LOTERIE HAÏTI</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="results.html" class="hover:text-haiti-red transition">Results</a>
+                    <a href="statistics.html" class="hover:text-haiti-red transition">Statistics</a>
+                    <a href="vendors.html" class="hover:text-haiti-red transition">Vendors</a>
+                    <a href="news.html" class="text-haiti-red font-semibold">News</a>
+                    <div class="relative">
+                        <select class="bg-transparent border-white border rounded px-2 py-1">
+                            <option value="ht">Kreyòl</option>
+                            <option value="fr">Français</option>
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    <button class="bg-haiti-red px-4 py-2 rounded-lg hover:bg-red-700 transition">
+                        Sign In
+                    </button>
+                </div>
+                <button class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- News Header -->
+    <header class="bg-haiti-blue text-white py-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-montserrat font-bold mb-4">Latest News</h1>
+            <p class="text-lg opacity-90">Stay updated with the latest lottery news and announcements</p>
+        </div>
+    </header>
+
+    <!-- Featured News -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Featured Article -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-64 bg-haiti-blue flex items-center justify-center">
+                        <i class="fas fa-newspaper text-6xl text-white opacity-25"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-600 mb-2">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>May 8, 2024</span>
+                            <span class="mx-2">•</span>
+                            <span>Featured</span>
+                        </div>
+                        <h2 class="text-2xl font-montserrat font-bold mb-3">New Online Lottery System Launch</h2>
+                        <p class="text-gray-600 mb-4">Loterie Haïti announces the launch of its new online platform, making it easier for players to access results and find vendors...</p>
+                        <a href="#" class="text-haiti-blue hover:text-haiti-red font-semibold">Read more →</a>
+                    </div>
+                </div>
+
+                <!-- Recent News Grid -->
+                <div class="grid gap-6">
+                    <!-- News Item -->
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="flex items-center text-sm text-gray-600 mb-2">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>May 7, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-montserrat font-bold mb-2">Record Jackpot Winner in Port-au-Prince</h3>
+                        <p class="text-gray-600">Local resident wins biggest jackpot in Haitian lottery history...</p>
+                        <a href="#" class="text-haiti-blue hover:text-haiti-red font-semibold mt-2 inline-block">Read more →</a>
+                    </div>
+                    <!-- News Item -->
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="flex items-center text-sm text-gray-600 mb-2">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>May 6, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-montserrat font-bold mb-2">New Vendor Locations Added</h3>
+                        <p class="text-gray-600">Expanding our network with 20 new authorized vendors across Haiti...</p>
+                        <a href="#" class="text-haiti-blue hover:text-haiti-red font-semibold mt-2 inline-block">Read more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Categories -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-montserrat font-bold mb-8">News Categories</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Category -->
+                <a href="#" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 bg-haiti-blue rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-trophy text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold mb-2 group-hover:text-haiti-blue">Winners Stories</h3>
+                    <p class="text-gray-600 text-sm">Read about recent lottery winners and their stories</p>
+                </a>
+                <!-- Category -->
+                <a href="#" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 bg-haiti-red rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-bullhorn text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold mb-2 group-hover:text-haiti-red">Announcements</h3>
+                    <p class="text-gray-600 text-sm">Important updates and announcements about our services</p>
+                </a>
+                <!-- Category -->
+                <a href="#" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 bg-haiti-blue rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-store text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold mb-2 group-hover:text-haiti-blue">Vendor Updates</h3>
+                    <p class="text-gray-600 text-sm">News about our vendor network and locations</p>
+                </a>
+                <!-- Category -->
+                <a href="#" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 bg-haiti-red rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold mb-2 group-hover:text-haiti-red">Industry News</h3>
+                    <p class="text-gray-600 text-sm">Latest trends and updates in the lottery industry</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="bg-haiti-blue rounded-lg shadow-lg p-8 text-white text-center">
+                <h2 class="text-2xl font-montserrat font-bold mb-4">Subscribe to Our Newsletter</h2>
+                <p class="mb-6">Get the latest news and updates delivered directly to your inbox</p>
+                <form class="max-w-md mx-auto">
+                    <div class="flex gap-4">
+                        <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-lg text-gray-900">
+                        <button type="submit" class="bg-haiti-red px-6 py-2 rounded-lg hover:bg-red-700 transition">
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-haiti-blue text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">About Us</h4>
+                    <p class="text-sm">Official platform for Haitian lottery results and information.</p>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="results.html" class="hover:text-haiti-red transition">Results</a></li>
+                        <li><a href="statistics.html" class="hover:text-haiti-red transition">Statistics</a></li>
+                        <li><a href="vendors.html" class="hover:text-haiti-red transition">Find Vendor</a></li>
+                        <li><a href="news.html" class="hover:text-haiti-red transition">News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fas fa-phone mr-2"></i> +509 2xxx-xxxx</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@loteriehaiti.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-8 pt-8 text-center text-sm">
+                <p>&copy; 2024 Loterie Haïti. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
