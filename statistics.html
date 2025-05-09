@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics - Loterie Haïti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Add Chart.js for statistics visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'haiti-blue': '#0047AB',
+                        'haiti-red': '#E31837',
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'opensans': ['Open Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-opensans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-haiti-blue text-white">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-2">
+                            <span class="text-haiti-blue text-2xl font-bold">5</span>
+                        </div>
+                        <span class="text-xl font-montserrat font-bold">LOTERIE HAÏTI</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="results.html" class="hover:text-haiti-red transition">Results</a>
+                    <a href="statistics.html" class="text-haiti-red font-semibold">Statistics</a>
+                    <a href="#" class="hover:text-haiti-red transition">Vendors</a>
+                    <a href="#" class="hover:text-haiti-red transition">News</a>
+                    <div class="relative">
+                        <select class="bg-transparent border-white border rounded px-2 py-1">
+                            <option value="ht">Kreyòl</option>
+                            <option value="fr">Français</option>
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    <button class="bg-haiti-red px-4 py-2 rounded-lg hover:bg-red-700 transition">
+                        Sign In
+                    </button>
+                </div>
+                <button class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Statistics Header -->
+    <header class="bg-haiti-blue text-white py-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-montserrat font-bold mb-4">Statistics & Analysis</h1>
+            <p class="text-lg opacity-90">Explore patterns, trends, and insights from our lottery games</p>
+        </div>
+    </header>
+
+    <!-- Game Selector -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Select Game</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option value="borlette">Borlette</option>
+                            <option value="florida">Florida Lotto</option>
+                            <option value="newyork">New York Lotto</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Time Period</label>
+                        <select class="w-full border rounded-lg px-3 py-2">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30">Last 30 Days</option>
+                            <option value="90">Last 3 Months</option>
+                            <option value="365">Last Year</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button class="w-full bg-haiti-blue text-white rounded-lg px-6 py-2 hover:bg-blue-700 transition">
+                            Update Statistics
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Dashboard -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Frequency Chart -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-montserrat font-bold mb-4">Number Frequency</h2>
+                    <canvas id="frequencyChart" height="300"></canvas>
+                </div>
+                <!-- Pattern Analysis -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-montserrat font-bold mb-4">Pattern Analysis</h2>
+                    <canvas id="patternChart" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hot & Cold Numbers -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Hot Numbers -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-montserrat font-bold mb-4">Hot Numbers</h2>
+                    <p class="text-gray-600 mb-4">Most frequently drawn numbers in the last 30 days</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="text-center">
+                            <span class="w-16 h-16 rounded-full bg-haiti-red text-white flex items-center justify-center font-bold text-2xl">7</span>
+                            <p class="mt-2 text-sm font-semibold">15 times</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="w-16 h-16 rounded-full bg-haiti-red text-white flex items-center justify-center font-bold text-2xl">3</span>
+                            <p class="mt-2 text-sm font-semibold">12 times</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="w-16 h-16 rounded-full bg-haiti-red text-white flex items-center justify-center font-bold text-2xl">9</span>
+                            <p class="mt-2 text-sm font-semibold">11 times</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cold Numbers -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-montserrat font-bold mb-4">Cold Numbers</h2>
+                    <p class="text-gray-600 mb-4">Least frequently drawn numbers in the last 30 days</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="text-center">
+                            <span class="w-16 h-16 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold text-2xl">2</span>
+                            <p class="mt-2 text-sm font-semibold">1 time</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="w-16 h-16 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold text-2xl">5</span>
+                            <p class="mt-2 text-sm font-semibold">2 times</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="w-16 h-16 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold text-2xl">8</span>
+                            <p class="mt-2 text-sm font-semibold">3 times</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Predictions Section -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-montserrat font-bold mb-6">AI-Powered Predictions</h2>
+                <p class="text-gray-600 mb-6">Based on historical data analysis and pattern recognition</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Today's Prediction -->
+                    <div class="border rounded-lg p-4">
+                        <h3 class="font-montserrat font-bold mb-2">Today's Prediction</h3>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="w-10 h-10 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">4</span>
+                            <span class="w-10 h-10 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">6</span>
+                            <span class="w-10 h-10 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">9</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Confidence: 75%</p>
+                    </div>
+                    <!-- Weekly Trend -->
+                    <div class="border rounded-lg p-4">
+                        <h3 class="font-montserrat font-bold mb-2">Weekly Trend</h3>
+                        <p class="text-sm text-gray-600">Upward trend detected for numbers:</p>
+                        <div class="flex space-x-2 mt-2">
+                            <span class="w-10 h-10 rounded-full bg-haiti-red text-white flex items-center justify-center font-bold">3</span>
+                            <span class="w-10 h-10 rounded-full bg-haiti-red text-white flex items-center justify-center font-bold">7</span>
+                        </div>
+                    </div>
+                    <!-- Pattern Alert -->
+                    <div class="border rounded-lg p-4">
+                        <h3 class="font-montserrat font-bold mb-2">Pattern Alert</h3>
+                        <p class="text-sm text-gray-600">Recurring pattern detected:</p>
+                        <div class="mt-2">
+                            <span class="bg-gray-100 rounded px-2 py-1 text-sm">3-7-9 sequence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-haiti-blue text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">About Us</h4>
+                    <p class="text-sm">Official platform for Haitian lottery results and information.</p>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="results.html" class="hover:text-haiti-red transition">Results</a></li>
+                        <li><a href="statistics.html" class="hover:text-haiti-red transition">Statistics</a></li>
+                        <li><a href="#" class="hover:text-haiti-red transition">Find Vendor</a></li>
+                        <li><a href="#" class="hover:text-haiti-red transition">News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fas fa-phone mr-2"></i> +509 2xxx-xxxx</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@loteriehaiti.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-8 pt-8 text-center text-sm">
+                <p>&copy; 2024 Loterie Haïti. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Charts Initialization -->
+    <script>
+        // Frequency Chart
+        const frequencyCtx = document.getElementById('frequencyChart').getContext('2d');
+        new Chart(frequencyCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+                datasets: [{
+                    label: 'Frequency',
+                    data: [12, 19, 15, 8, 13, 17, 23, 10, 16, 11],
+                    backgroundColor: '#0047AB',
+                    borderColor: '#0047AB',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Pattern Chart
+        const patternCtx = document.getElementById('patternChart').getContext('2d');
+        new Chart(patternCtx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Pattern Strength',
+                    data: [65, 72, 68, 75],
+                    fill: false,
+                    borderColor: '#E31837',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
