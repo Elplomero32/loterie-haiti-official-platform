@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Loterie Haïti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Add Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'haiti-blue': '#0047AB',
+                        'haiti-red': '#E31837',
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'opensans': ['Open Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-opensans bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-haiti-blue text-white">
+            <div class="p-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-haiti-blue text-xl font-bold">5</span>
+                    </div>
+                    <span class="text-lg font-montserrat font-bold">Admin Panel</span>
+                </div>
+            </div>
+            <nav class="mt-8">
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 bg-white/10">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 hover:bg-white/10">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Lottery Results</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 hover:bg-white/10">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 hover:bg-white/10">
+                    <i class="fas fa-store"></i>
+                    <span>Vendors</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 hover:bg-white/10">
+                    <i class="fas fa-newspaper"></i>
+                    <span>News</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 hover:bg-white/10">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-auto">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex justify-between items-center px-8 py-4">
+                    <h1 class="text-2xl font-montserrat font-bold">Dashboard</h1>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <button class="relative p-2 text-gray-400 hover:text-gray-600">
+                                <i class="fas fa-bell"></i>
+                                <span class="absolute top-0 right-0 h-2 w-2 bg-haiti-red rounded-full"></span>
+                            </button>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=E31837&color=fff" alt="Admin" class="w-8 h-8 rounded-full">
+                            <span class="font-medium">Admin</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="p-8">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <!-- Total Users -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-600">Total Users</p>
+                                <h3 class="text-2xl font-bold">12,543</h3>
+                                <p class="text-sm text-green-600">+15% this month</p>
+                            </div>
+                            <div class="w-12 h-12 bg-haiti-blue/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-users text-haiti-blue"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Active Vendors -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-600">Active Vendors</p>
+                                <h3 class="text-2xl font-bold">247</h3>
+                                <p class="text-sm text-green-600">+5% this month</p>
+                            </div>
+                            <div class="w-12 h-12 bg-haiti-red/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-store text-haiti-red"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Today's Results -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-600">Today's Results</p>
+                                <h3 class="text-2xl font-bold">8</h3>
+                                <p class="text-sm text-blue-600">All published</p>
+                            </div>
+                            <div class="w-12 h-12 bg-haiti-blue/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-ticket-alt text-haiti-blue"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- System Status -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-600">System Status</p>
+                                <h3 class="text-2xl font-bold">Active</h3>
+                                <p class="text-sm text-green-600">All systems operational</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                    <h2 class="text-xl font-montserrat font-bold mb-4">Quick Actions</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <button class="flex items-center justify-center space-x-2 p-4 border rounded-lg hover:bg-gray-50">
+                            <i class="fas fa-plus-circle text-haiti-blue"></i>
+                            <span>Add New Result</span>
+                        </button>
+                        <button class="flex items-center justify-center space-x-2 p-4 border rounded-lg hover:bg-gray-50">
+                            <i class="fas fa-user-plus text-haiti-blue"></i>
+                            <span>Add New Vendor</span>
+                        </button>
+                        <button class="flex items-center justify-center space-x-2 p-4 border rounded-lg hover:bg-gray-50">
+                            <i class="fas fa-newspaper text-haiti-blue"></i>
+                            <span>Post News</span>
+                        </button>
+                        <button class="flex items-center justify-center space-x-2 p-4 border rounded-lg hover:bg-gray-50">
+                            <i class="fas fa-bell text-haiti-blue"></i>
+                            <span>Send Notification</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Latest Results -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h2 class="text-xl font-montserrat font-bold mb-4">Latest Results</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 border rounded-lg">
+                                <div>
+                                    <h3 class="font-semibold">Borlette Midi</h3>
+                                    <p class="text-sm text-gray-600">Today, 12:00 PM</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">7</span>
+                                    <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">2</span>
+                                    <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">9</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-4 border rounded-lg">
+                                <div>
+                                    <h3 class="font-semibold">New York Lotto</h3>
+                                    <p class="text-sm text-gray-600">Today, 2:30 PM</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">4</span>
+                                    <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">8</span>
+                                    <span class="w-8 h-8 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Users -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h2 class="text-xl font-montserrat font-bold mb-4">Recent Users</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://ui-avatars.com/api/?name=John+Doe" alt="User" class="w-10 h-10 rounded-full">
+                                    <div>
+                                        <h3 class="font-semibold">John Doe</h3>
+                                        <p class="text-sm text-gray-600">Registered 2 hours ago</p>
+                                    </div>
+                                </div>
+                                <button class="text-haiti-blue hover:text-haiti-red">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://ui-avatars.com/api/?name=Marie+Jean" alt="User" class="w-10 h-10 rounded-full">
+                                    <div>
+                                        <h3 class="font-semibold">Marie Jean</h3>
+                                        <p class="text-sm text-gray-600">Registered 5 hours ago</p>
+                                    </div>
+                                </div>
+                                <button class="text-haiti-blue hover:text-haiti-red">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Charts Initialization -->
+    <script>
+        // Add any necessary chart initializations here
+    </script>
+</body>
+</html>
