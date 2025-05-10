@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loto Lakay - Platfòm Lotri Ayisyen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'haiti-blue': '#00209F',
+                        'haiti-red': '#D42E12',
+                        'haiti-gold': '#EFB810',
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'opensans': ['Open Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-opensans bg-gray-50 dark:bg-gray-900">
+    <!-- Live Results Ticker -->
+    <div class="bg-haiti-blue text-white py-2 overflow-hidden">
+        <div class="animate-marquee whitespace-nowrap">
+            <div class="inline-block">
+                🎲 Borlette Midi: 7-2-9 | 
+                🎯 Florida: 4-8-1 | 
+                🎰 New York: 3-5-8 | 
+                🎲 Loto Soir: 6-9-2 |
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                🎲 Borlette Midi: 7-2-9 | 
+                🎯 Florida: 4-8-1 | 
+                🎰 New York: 3-5-8 | 
+                🎲 Loto Soir: 6-9-2
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center">
+                        <div class="w-12 h-12 bg-haiti-blue rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">L</span>
+                        </div>
+                        <span class="text-xl font-montserrat font-bold ml-2 text-gray-800 dark:text-white">LOTO LAKAY</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-haiti-blue dark:text-white font-semibold">Akèy</a>
+                    <a href="results.html" class="text-gray-600 dark:text-gray-300 hover:text-haiti-blue dark:hover:text-white">Rezilta</a>
+                    <a href="notifications.html" class="text-gray-600 dark:text-gray-300 hover:text-haiti-blue dark:hover:text-white">Notifikasyon</a>
+                    <a href="statistics.html" class="text-gray-600 dark:text-gray-300 hover:text-haiti-blue dark:hover:text-white">Estatistik</a>
+                    <a href="vendors.html" class="text-gray-600 dark:text-gray-300 hover:text-haiti-blue dark:hover:text-white">Vandè</a>
+                </div>
+
+                <!-- Right Menu -->
+                <div class="flex items-center space-x-4">
+                    <!-- Language Selector -->
+                    <div class="relative">
+                        <select class="bg-transparent border border-gray-300 dark:border-gray-600 rounded px-2 py-1 text-gray-600 dark:text-gray-300">
+                            <option value="ht">Kreyòl</option>
+                            <option value="fr">Français</option>
+                            <option value="es">Español</option>
+                        </select>
+                    </div>
+
+                    <!-- Theme Toggle -->
+                    <button class="p-2 text-gray-600 dark:text-gray-300 hover:text-haiti-blue dark:hover:text-white">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+
+                    <!-- Login Button -->
+                    <a href="login.html" class="bg-haiti-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                        Konekte
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-gray-600 dark:text-gray-300">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div class="md:hidden hidden bg-white dark:bg-gray-800 shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="text-haiti-blue dark:text-white font-semibold">Akèy</a>
+                <a href="results.html" class="text-gray-600 dark:text-gray-300">Rezilta</a>
+                <a href="notifications.html" class="text-gray-600 dark:text-gray-300">Notifikasyon</a>
+                <a href="statistics.html" class="text-gray-600 dark:text-gray-300">Estatistik</a>
+                <a href="vendors.html" class="text-gray-600 dark:text-gray-300">Vandè</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-haiti-blue text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-montserrat font-bold mb-4">
+                        Byenvini nan Loto Lakay
+                    </h1>
+                    <p class="text-lg mb-8 opacity-90">
+                        Premye platfòm lotri Ayisyen ki bay ou rezilta an tan reyèl, estatistik, ak prediksyon.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="results.html" class="bg-haiti-red px-6 py-3 rounded-lg hover:bg-red-700 transition font-semibold">
+                            Rezilta Jodi a
+                        </a>
+                        <a href="history.html" class="bg-white text-haiti-blue px-6 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+                            Istwa Rezilta
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <img src="https://placehold.co/600x400/00209F/FFFFFF/png?text=LOTO+LAKAY" alt="Loto Lakay" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lottery Type Selector -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-montserrat font-bold mb-8 text-gray-800 dark:text-white">Chwazi Tip Lotri</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Borlette -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="w-12 h-12 bg-haiti-blue rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-dice text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-montserrat font-bold mb-2 text-gray-800 dark:text-white">Borlette</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Lotri tradisyonèl Ayisyen ak plizyè tiraj pa jou.</p>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-haiti-blue dark:text-haiti-gold hover:underline">Loto Leve</a>
+                        <a href="#" class="block text-haiti-blue dark:text-haiti-gold hover:underline">Loto Midi</a>
+                        <a href="#" class="block text-haiti-blue dark:text-haiti-gold hover:underline">Loto Soir</a>
+                    </div>
+                </div>
+
+                <!-- Florida -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="w-12 h-12 bg-haiti-red rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-sun text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-montserrat font-bold mb-2 text-gray-800 dark:text-white">Florida</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Lotri Florida ak rezilta chak jou.</p>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-haiti-blue dark:text-haiti-gold hover:underline">Pick 3</a>
+                        <a href="#" class="block text-haiti-blue dark:text-haiti-gold hover:underline">Pick 4</a>
+                        <a href="#" class="block text-haiti-blue dark:text-haiti-gold hover:underline">Pick 5</a>
+                    </div>
+                </div>
+
+                <!-- New York -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="w-12 h-12 bg-haiti-blue rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-city text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-montserrat font-bold mb-2 text-gray-800 dark:text-white">New York</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Lotri New York ak rezilta chak jou.</p>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-haiti-blue dark:text-haiti-gold hover:underline">Numbers</a>
+                        <a href="#" class="block text-haiti-blue dark:text-haiti-gold hover:underline">Win 4</a>
+                        <a href="#" class="block text-haiti-blue dark:text-haiti-gold hover:underline">Take 5</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Summary -->
+    <section class="py-12 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-montserrat font-bold mb-8 text-gray-800 dark:text-white">Estatistik ak Prediksyon</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Hot Numbers -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-montserrat font-bold mb-4 text-gray-800 dark:text-white">Nimewo Ki Soti Plis</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="text-center">
+                            <span class="w-16 h-16 rounded-full bg-haiti-red text-white flex items-center justify-center font-bold text-2xl">7</span>
+                            <p class="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-300">15 fwa</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="w-16 h-16 rounded-full bg-haiti-red text-white flex items-center justify-center font-bold text-2xl">3</span>
+                            <p class="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-300">12 fwa</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="w-16 h-16 rounded-full bg-haiti-red text-white flex items-center justify-center font-bold text-2xl">9</span>
+                            <p class="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-300">11 fwa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Predictions -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-montserrat font-bold mb-4 text-gray-800 dark:text-white">Prediksyon IA</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Borlette Midi</p>
+                                <div class="flex space-x-2 mt-1">
+                                    <span class="w-10 h-10 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">4</span>
+                                    <span class="w-10 h-10 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">6</span>
+                                    <span class="w-10 h-10 rounded-full bg-haiti-blue text-white flex items-center justify-center font-bold">9</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Konfyans</p>
+                                <p class="font-bold text-haiti-blue dark:text-haiti-gold">75%</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 italic">
+                            *Prediksyon sa yo baze sou done istorik ak pa garanti okenn rezilta.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-montserrat font-bold mb-8 text-gray-800 dark:text-white">Karakteristik</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Feature -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-haiti-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bell text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold mb-2 text-gray-800 dark:text-white">Notifikasyon</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Resevwa rezilta yo dirèkteman sou telefòn ou.</p>
+                </div>
+                <!-- Feature -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-haiti-red rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold mb-2 text-gray-800 dark:text-white">Estatistik</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Analize tandans ak modèl yo.</p>
+                </div>
+                <!-- Feature -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-haiti-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold mb-2 text-gray-800 dark:text-white">Jwenn Vandè</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Lokalize vandè ki pi pre w yo.</p>
+                </div>
+                <!-- Feature -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-haiti-red rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-history text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold mb-2 text-gray-800 dark:text-white">Istwa</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Aksè a tout rezilta pase yo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-haiti-blue text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Konnen Nou</h4>
+                    <p class="text-sm">Platfòm ofisyèl pou rezilta lotri Ayisyen ak enfòmasyon.</p>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Lyen Rapid</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="results.html" class="hover:text-haiti-red transition">Rezilta</a></li>
+                        <li><a href="statistics.html" class="hover:text-haiti-red transition">Estatistik</a></li>
+                        <li><a href="vendors.html" class="hover:text-haiti-red transition">Jwenn Vandè</a></li>
+                        <li><a href="news.html" class="hover:text-haiti-red transition">Nouvèl</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Kontakte Nou</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fas fa-phone mr-2"></i> +509 2xxx-xxxx</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@lotolakay.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-montserrat font-bold mb-4">Swiv Nou</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-haiti-red transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-8 pt-8 text-center text-sm">
+                <p>&copy; 2024 Loto Lakay. Tout dwa rezève.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Offline Message (Hidden by default) -->
+    <div class="fixed bottom-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hidden" id="offline-message">
+        <i class="fas fa-wifi-slash mr-2"></i> Ou pa konekte sou entènèt
+    </div>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        // Check for saved theme preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+
+        // Theme toggle button
+        document.querySelector('button[class*="text-gray-600"]').addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark')
+                localStorage.theme = 'light'
+            } else {
+                document.documentElement.classList.add('dark')
+                localStorage.theme = 'dark'
+            }
+        })
+
+        // Mobile menu toggle
+        document.querySelector('button[class*="md:hidden"]').addEventListener('click', function() {
+            const mobileMenu = document.querySelector('.md\\:hidden.hidden')
+            mobileMenu.classList.toggle('hidden')
+        })
+
+        // Offline detection
+        window.addEventListener('offline', function() {
+            document.getElementById('offline-message').classList.remove('hidden')
+        })
+
+        window.addEventListener('online', function() {
+            document.getElementById('offline-message').classList.add('hidden')
+        })
+    </script>
+</body>
+</html>
